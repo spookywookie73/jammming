@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./App.module.css";
 import SearchResults from "../SearchResults/SearchResults";
+import Playlist from "../Playlist/Playlist";
 
 function App () {
   const [searchResults, setSearchResults] = useState([
@@ -17,6 +18,21 @@ function App () {
       id: 2,
     },
   ]);
+  const [playlistName, setPlaylistName] = useState("Example Playlist Name");
+  const [playlistTracks, setPlaylistTracks] =useState([
+    {
+      name: "example playlist name 1",
+      artist: "example playlist artist 1",
+      album: "example playlist album 1",
+      id: 1,
+    },
+    {
+      name: "example playlist name 2",
+      artist: "example playlist artist 2",
+      album: "example playlist album 2",
+      id: 2,
+    },
+  ]);
   return (
     <div>
       <h1>
@@ -27,7 +43,7 @@ function App () {
           
         <div className={styles['App-playlist']}>
           <SearchResults userSearchResults={searchResults} />
-          {/* <!-- Add a Playlist component --> */}
+          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
         </div>
       </div>
     </div>
